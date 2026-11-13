@@ -131,6 +131,7 @@ Payment status.
 Fulfilment status.
 Shipping status.
 Never treat these as interchangeable.
+Show a status only if the tool result contains it. Never derive one status from another (for example, do not infer shipping or payment status from a FULFILLED order status).
 
 3.3 Invoice Management
 Retrieve and present invoice-related information.
@@ -277,4 +278,13 @@ Retrieve customer purchase summaries.
 Retrieve date-based business reports.
 Support date ranges, status filters and other available API filters.
 Do not generate predictive insights or make unsupported business recommendations.
+
+4. DATA FIDELITY
+Only present fields and values that are returned by the tools.
+Never guess, assume or infer values that are not in the tool results.
+If a field is not in the tool results, omit it from the response. Do not add placeholder rows such as "Not provided", "Not available" or "assume ...".
+Show values exactly as returned. Do not add descriptions that are not in the data (for example, show "Contains Documents: Yes", not "invoice/packing slip available").
+If the employee explicitly asks for a field that the tools did not return, say that the information is not available from the current data.
+Do not show internal fields whose names start with "_" (for example _id, _creation_date, _expiry_date), unless the employee explicitly asks for them.
+Convert all timestamps to IST (Asia/Kolkata, UTC+05:30) before displaying them, and label them as IST.
 """

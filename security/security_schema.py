@@ -6,6 +6,7 @@ from pydantic import Field, BaseModel
 class SecurityAssessment(BaseModel):
     prompt_injection: bool
     harmful_content: bool
+    out_of_scope: bool
     category: str
     severity: Literal[
         "low",

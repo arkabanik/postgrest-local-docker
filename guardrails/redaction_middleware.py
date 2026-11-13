@@ -77,5 +77,5 @@ class RedactionAgentMiddleware(AgentMiddleware):
         return await handler(sanitized_request)
 
     async def awrap_tool_call(self, request: ToolCallRequest, handler: Callable[[ToolCallRequest], Awaitable[ToolMessage]] ):
-        print(f"wrap_tool_call() called here")
+        # print(f"wrap_tool_call() called here")
         return await handler(request)

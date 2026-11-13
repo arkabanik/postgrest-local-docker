@@ -45,5 +45,15 @@ services:
     depends_on:
       - postgrest
 
+  redis:
+    image: redis/redis-stack:latest
+    container_name: abeg-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - abeg_redis_data:/data
+    restart: unless-stopped
+
 volumes:
   pgdata:
+  abeg_redis_data:
