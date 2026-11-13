@@ -84,7 +84,6 @@ async def run():
             if tool_used and isinstance(result, str) and result.strip():
                 await question_semantic_cache.put(user_query, result)
 
-            # await question_semantic_cache.put(user_query, response['messages'][-1].content)
         except Exception as e:
             print(f"Error: {e}")
 
